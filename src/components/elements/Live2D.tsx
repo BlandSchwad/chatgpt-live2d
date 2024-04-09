@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useModel } from "@/hooks/useModel";
 import { debounce } from "@/utils/conversions";
-
-export const Live2D = () => {
+import { Menu } from "./Menu";
+export const Live2D = (props) => {
   const { init, handleResize, model, app } = useModel();
   useEffect(() => {
     init();
@@ -21,6 +21,7 @@ export const Live2D = () => {
   }, [model, app]);
   return (
     <>
+      {props.debug && <Menu/>}
       <canvas id="canvas" />
     </>
   );
