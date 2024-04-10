@@ -43,7 +43,7 @@ export const useModel = () => {
     }
 
     const model = await Live2DModel.from(
-      "/Resources/Hiyori/Hiyori.model3.json"
+      "/Resources/Haru/Haru.model3.json"
     );
 
     current.stage.addChild(model);
