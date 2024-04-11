@@ -16,9 +16,14 @@ import {
 import { redirect } from 'next/navigation'
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
-
+import { useSession, signIn, signOut } from "next-auth/react"
+import { GithubButton } from './elements/GithubButton';
+import { signup } from '@/pages/signup/actions';
 export function LoginForm(props: PaperProps) {
 //   const [type, toggle] = useToggle(['login', 'register']);
+// const session = useSession()
+
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -40,13 +45,21 @@ export function LoginForm(props: PaperProps) {
       </Text>
 
       <Group grow mb="md" mt="md">
+        <GithubButton  onClick={() => {signIn('github')}} radius={"xl"}>Github</GithubButton>
+        {/* {session && <div>signed in as {session.user?.email}</div>} */}
         {/* <GoogleButton radius="xl">Google</GoogleButton>
         <TwitterButton radius="xl">Twitter</TwitterButton> */}
       </Group>
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form onSubmit={form.onSubmit((values) => {
+        if(props.type === 'register') {
+            console.log(form.values)
+            signup(form.values)
+            return
+        } 
+        signIn('credentials', values)})}>
         <Stack>
           {props.type === 'register' && (
             <TextInput
@@ -96,6 +109,12 @@ export function LoginForm(props: PaperProps) {
           <Button type="submit" radius="xl">
             {upperFirst(props.type)}
           </Button>
+          {/* <Button type='' radius='xl' onClick={async () => {
+            await signOut()
+
+          }}>
+            Sign Out
+          </Button> */}
         </Group>
       </form>
     </Paper>
