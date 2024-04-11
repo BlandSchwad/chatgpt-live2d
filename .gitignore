@@ -38,3 +38,5 @@ next-env.d.ts
 /public/Resources
 /public/live2d.min.js
 /public/live2dcubismcore.min.js
+
+.vercel
