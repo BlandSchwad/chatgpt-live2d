@@ -9,22 +9,30 @@ interface MotionsGroupProps {
     initiallyOpened?: boolean
 }
 
+interface MotionDefinition{
+    Name: string
+    Sound: string
+    File: string
+    fadeIn: Number
+    fadeout: Number
+}
+
 
 export function MotionsGroup(props: MotionsGroupProps) {
     const [opened, setOpened] = useState(props.initiallyOpened || false)
     const motionManager = props.model.internalModel.motionManager
-    const defs = Object.entries(motionManager.definitions)
+    const defs = Object.entries(motionManager.definitions) as [string, MotionDefinition[]][]
+
+    
     const pingas = defs.map(([groupName, definitions]) => {
         
         return (
             <div key={'motiongroup' + groupName}>
             <Text key={groupName}>
                 {groupName}
-               
-               
             </Text>
             <Box>
-                { definitions.map((motion, index)=> {
+                { definitions.map((motion, index) => {
                     // console.log(motion, index)
                 return (
                     <div key={motion.File + index}>
@@ -67,7 +75,7 @@ export function MotionsGroup(props: MotionsGroupProps) {
     return(  
         <>
            <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-               <Group justify='space-between' gap={0}>
+               <Group >
                    <Box style={{ display: 'flex', alignItems: 'center' }}>
                        <ThemeIcon variant="light" size={30}>
                            <IconRun style={{ width: rem(18), height: rem(18) }} />

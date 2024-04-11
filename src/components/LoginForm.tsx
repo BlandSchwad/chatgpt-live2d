@@ -17,7 +17,7 @@ import { redirect } from 'next/navigation'
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
 
-export function LoginForm(props: {type: string , PaperProps: PaperProps}) {
+export function LoginForm(props: {type: string}) {
 //   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {

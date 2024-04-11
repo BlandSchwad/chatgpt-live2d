@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, rem, Col } from '@mantine/core';
 import classes from './LinksGroup.module.css';
 import { IconChevronRight, IconMoodSmile } from '@tabler/icons-react';
-import { Live2DModel } from 'pixi-live2d-display';
+import { Live2DExpression, Live2DModel } from 'pixi-live2d-display';
 // import { useModel } from '@/hooks/useModel';
 
 
@@ -10,10 +10,13 @@ interface ExpressionsGroupProps {
     model : Live2DModel
     initiallyOpened?: boolean
 }
+interface ExpressionDefinition {
+    File: string
+    Name: string
 
+}
 export function ExpressionsGroup(props : ExpressionsGroupProps) {
-    const defs = props.model.internalModel.motionManager.expressionManager?.definitions
- 
+    const defs = props.model.internalModel.motionManager.expressionManager?.definitions as ExpressionDefinition[]
     // console.log(defs)
     // console.log('express props', defs)
     // const {model} = useModel()
@@ -37,7 +40,7 @@ export function ExpressionsGroup(props : ExpressionsGroupProps) {
     return(  
         <>
            <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-               <Group justify='space-between' gap={0}>
+               <Group>
                    <Box style={{ display: 'flex', alignItems: 'center' }}>
                        <ThemeIcon variant="light" size={30}>
                            <IconMoodSmile style={{ width: rem(18), height: rem(18) }} />

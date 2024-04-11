@@ -72,7 +72,7 @@ const mockdata = [
   
 ];
 
-export function NavbarNested({expressionDefinitions, motionDefinitions}) {
+export function NavbarNested() {
   const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
 
   return (

@@ -12,11 +12,13 @@ import { NavbarNested } from "./NavbarNested";
 import classes from './NavbarNested.module.css';
 import { ExpressionsGroup } from "./ExpresionLinks";
 import { MotionsGroup } from "./MotionLinks";
+import { Live2DModel } from "pixi-live2d-display";
 
+interface MenuProps { 
+  model: Live2DModel
+}
 
-
-
-export const Menu = ({model}) => {
+export const Menu = ({model} : MenuProps) => {
  
 
 

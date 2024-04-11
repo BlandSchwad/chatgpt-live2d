@@ -29,7 +29,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
   return (
     <>
       <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-        <Group justify="space-between" gap={0}>
+        <Group >
           <Box style={{ display: 'flex', alignItems: 'center' }}>
             <ThemeIcon variant="light" size={30}>
               <Icon style={{ width: rem(18), height: rem(18) }} />
