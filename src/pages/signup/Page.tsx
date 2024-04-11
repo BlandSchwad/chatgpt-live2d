@@ -8,3 +8,6 @@ export const SignupPage: NextPage = () => {
     </>
   );
 };
+
+
+export default SignupPage

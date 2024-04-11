@@ -21,7 +21,7 @@ export const Live2D = () => {
   }, [model, app]);
   return (
     <>
-      { model && <Menu model={model}/>}
+      {/* { model && <Menu model={model}/>} */}
       <canvas id="canvas" />
     </>
   );

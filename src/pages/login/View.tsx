@@ -28,3 +28,5 @@ export const LoginPageView = () => {
     </>
   );
 };
+
+export default LoginPageView

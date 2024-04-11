@@ -8,3 +8,5 @@ export const LoginPage: NextPage = () => {
     </>
   );
 };
+
+export default LoginPage
