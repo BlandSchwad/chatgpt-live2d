@@ -35,7 +35,7 @@ export function MotionsGroup(props: MotionsGroupProps) {
                            mr={8}
                            color={"teal"}
                            onClick={() => 
-                            props.model.motion(groupName, index )
+                            props.model.motion(groupName, index)
                            }
                            >
                             <IconPlayerPlay size={24} color="teal"/>

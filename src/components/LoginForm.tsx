@@ -17,7 +17,7 @@ import { redirect } from 'next/navigation'
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
 
-export function LoginForm(props: PaperProps) {
+export function LoginForm(props: {type: string , PaperProps: PaperProps}) {
 //   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
@@ -87,7 +87,7 @@ export function LoginForm(props: PaperProps) {
           )}
         </Stack>
 
-        <Group justify="space-between" mt="xl">
+        <Group mt="xl">
           <Anchor component="button" type="button" c="dimmed" onClick={ async () => { await redirect('/signup')}} size="xs">
             {props.type === 'register'
               ? 'Already have an account? Login'
