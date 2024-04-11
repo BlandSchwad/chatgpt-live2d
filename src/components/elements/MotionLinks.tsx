@@ -17,7 +17,7 @@ export function MotionsGroup(props: MotionsGroupProps) {
     const pingas = defs.map(([groupName, definitions]) => {
         
         return (
-            <div>
+            <div key={'motiongroup' + groupName}>
             <Text key={groupName}>
                 {groupName}
                
@@ -27,7 +27,7 @@ export function MotionsGroup(props: MotionsGroupProps) {
                 { definitions.map((motion, index)=> {
                     // console.log(motion, index)
                 return (
-                    <div>
+                    <div key={motion.File + index}>
                         {motion.File}
                         {motion.Sound}
                         <ActionIcon 
