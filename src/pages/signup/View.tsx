@@ -15,12 +15,19 @@ const Live2DBubble = dynamic<{}>(
   { ssr: false }
 );
 
+import {Button }from '@mantine/core'
+import { signup } from "./actions";
+import { getUser } from "../login/actions";
 export const SignupPageView = () => {
   return (
     <>
       <main className="flex flex-col p-4">
-        <LoginForm type={'register'}/>
-        {/* Signup FORM COMPONENT GOES HERE */}
+        {/* <LoginForm type={'register'}/> */}
+        <Button onClick={async () =>{ signup({name: "Andrew", email:"blandschwad@gmail.com", password: "testerino", terms: true})}}> Go </Button>
+        <Button onClick={async () => {await getUser("blandschwad@gmail.com")}}> Get user </Button>
+        <Button onClick={() => {console.log(process.env.NEXTAUTH_URL)}}>addEventListener</Button>
+
+ 
         {/* <Live2D />
         <Live2DBubble />
         <UserInput /> */}
