@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { UserInput } from "@/components/elements/UserInput";
-
-const Live2D = dynamic<{}>(
+import { Live2DProps } from "@/components/elements/Live2D";
+const Live2D = dynamic<Live2DProps>(
   () => import("@/components/elements/Live2D").then((module) => module.Live2D),
   { ssr: false }
 );
@@ -19,7 +19,7 @@ export const HomePageView = () => {
   return (
     <>
       <main className="h-screen w-screen relative">
-        <Live2D />
+        <Live2D debug={false} />
         {/* <Live2DBubble /> */}
         {/* <UserInput /> */}
       </main>
