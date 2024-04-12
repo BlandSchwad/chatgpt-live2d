@@ -29,6 +29,7 @@
     "eventsource-parser": "^1.0.0",
     "jotai": "^2.1.0",
     "next": "13.4.1",
+    "next-auth": "^4.24.7",
     "patch-package": "^7.0.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "^6.5.9",
