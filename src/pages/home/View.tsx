@@ -18,8 +18,8 @@ export const HomePageView = () => {
   
   return (
     <>
-      <main className="h-screen w-screen relative">
-        <Live2D debug={false} />
+      <main className="flex h-screen w-screen relative">
+        <Live2D debug={true} />
         {/* <Live2DBubble /> */}
         {/* <UserInput /> */}
       </main>

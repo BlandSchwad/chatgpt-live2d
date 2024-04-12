@@ -25,8 +25,10 @@ export const Live2D = (props: Live2DProps) => {
   }, [model, app]);
   return (
     <>
+    <div className="flex flex-row">
       {props.debug && model && <Menu model={model}/>}
       <canvas id="canvas" />
+      </div>
     </>
   );
 };
