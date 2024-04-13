@@ -14,6 +14,8 @@ import {
   Stack,
 } from '@mantine/core';
 import { redirect } from 'next/navigation'
+import { IconBrandGithub } from '@tabler/icons-react';
+import { signIn } from 'next-auth/react';
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
 
@@ -40,6 +42,7 @@ export function LoginForm(props: {type: string}) {
       </Text>
 
       <Group grow mb="md" mt="md">
+        <Button radius="xl" onClick={async () => {await signIn('github')}}><IconBrandGithub/>Github</Button>
         {/* <GoogleButton radius="xl">Google</GoogleButton>
         <TwitterButton radius="xl">Twitter</TwitterButton> */}
       </Group>
