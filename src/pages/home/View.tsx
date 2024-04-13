@@ -1,4 +1,4 @@
-'use client'
+
 import dynamic from "next/dynamic";
 import { UserInput } from "@/components/elements/UserInput";
 import { Live2DProps } from "@/components/elements/Live2D";
@@ -15,14 +15,9 @@ const Live2DBubble = dynamic<{}>(
     ),
   { ssr: false }
 );
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+
 export const HomePageView = () => {
-  const router = useRouter();
-  const {data:session} = useSession();
- if(!session) {
-  router.push('/login')
- }
+  
   return (
     <>
       <main className="flex flex-col h-screen w-screen relative">
