@@ -16,17 +16,19 @@ import {
 } from '@mantine/core';
 import { redirect, useRouter } from 'next/navigation'
 import { IconBrandGithub } from '@tabler/icons-react';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
 
 export function LoginForm(props: {type: string}) {
 const router = useRouter()
-router.push('/')
-  const redic = async () => {
-    'use server'
-    await redirect('/')
+const {data: session} = useSession()
+if(router) {
+  if(session) {
+    router.push('/home')
   }
+}
 //   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
