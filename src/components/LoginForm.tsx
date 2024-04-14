@@ -58,7 +58,7 @@ if(router) {
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {redic()})}>
+      <form onSubmit={form.onSubmit(() => {})}>
         <Stack>
           {props.type === 'register' && (
             <TextInput
