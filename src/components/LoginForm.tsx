@@ -1,3 +1,4 @@
+'use client'
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import {
@@ -13,13 +14,19 @@ import {
   Anchor,
   Stack,
 } from '@mantine/core';
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { IconBrandGithub } from '@tabler/icons-react';
 import { signIn } from 'next-auth/react';
 // import { GoogleButton } from './GoogleButton';
 // import { TwitterButton } from './TwitterButton';
 
 export function LoginForm(props: {type: string}) {
+const router = useRouter()
+router.push('/')
+  const redic = async () => {
+    'use server'
+    await redirect('/')
+  }
 //   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
@@ -49,7 +56,7 @@ export function LoginForm(props: {type: string}) {
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form onSubmit={form.onSubmit(() => {redic()})}>
         <Stack>
           {props.type === 'register' && (
             <TextInput

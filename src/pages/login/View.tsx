@@ -7,13 +7,7 @@ import { LoginForm } from "@/components/LoginForm";
 //   { ssr: false }
 // );
 
-const Live2DBubble = dynamic<{}>(
-  () =>
-    import("@/components/elements/Live2DBubble").then(
-      (module) => module.Live2DBubble
-    ),
-  { ssr: false }
-);
+
 
 export const LoginPageView = () => {
   return (
