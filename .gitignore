@@ -35,6 +35,6 @@ yarn-error.log*
 next-env.d.ts
 
 # cubism sdk
-/public/Resources
-/public/live2d.min.js
-/public/live2dcubismcore.min.js
+# /public/Resources
+# /public/live2d.min.js
+# /public/live2dcubismcore.min.js
